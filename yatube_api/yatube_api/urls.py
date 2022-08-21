@@ -10,4 +10,9 @@ urlpatterns = [
         TemplateView.as_view(template_name='redoc.html'),
         name='redoc'
     ),
+    # Djoser создаст набор необходимых эндпоинтов.
+    # базовые, для управления пользователями в Django:
+    path('api/v1/', include('djoser.urls')),
+    # JWT-эндпоинты, для управления JWT-токенами:
+    path('api/v1/', include('djoser.urls.jwt')),
 ]
